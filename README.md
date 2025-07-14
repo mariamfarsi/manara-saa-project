@@ -1,5 +1,5 @@
 
-# Advanced AWS Web Application Deployment Guide
+# Scalable Web Application with ALB and Auto Scaling
 
 This project demonstrates a full-fledged AWS environment setup for deploying a scalable, secure, and robust web application. It includes VPC setup, EC2 configuration, custom AMIs, Load Balancer, Auto Scaling Group, RDS integration, and Secrets Manager for credential management.
 
