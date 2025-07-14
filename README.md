@@ -121,6 +121,7 @@ dnf update -y
 - Test "Load" to trigger scaling.
 - Monitor metrics in CloudWatch.
 
+![alb dns](./screenshots/arch.jpg)
 ---
 
 ## Conclusion
