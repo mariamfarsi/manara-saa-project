@@ -11,6 +11,11 @@ This project demonstrates a full-fledged AWS environment setup for deploying a s
 - AWS Console Access or AWS CLI
 - Basic knowledge of Linux and AWS services
 
+
+## Diagram
+
+![Architecture Diagram](arch.jpg)
+
 ---
 
 ## VPC Configuration
@@ -98,7 +103,7 @@ dnf update -y
    - VPC: `VPC-Lab`
    - Subnet Group: New
    - SG: `db-SG`
-   - Initial DB: `immersionday`
+   - Initial DB: `app-db`
 
 ---
 
