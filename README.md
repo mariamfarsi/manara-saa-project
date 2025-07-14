@@ -1,11 +1,11 @@
 
-# 🚀 Advanced AWS Web Application Deployment Guide
+# Advanced AWS Web Application Deployment Guide
 
 This project demonstrates a full-fledged AWS environment setup for deploying a scalable, secure, and robust web application. It includes VPC setup, EC2 configuration, custom AMIs, Load Balancer, Auto Scaling Group, RDS integration, and Secrets Manager for credential management.
 
 ---
 
-## 📋 Prerequisites
+## Prerequisites
 
 - AWS Account (Free Tier recommended)
 - AWS Console Access or AWS CLI
@@ -13,7 +13,7 @@ This project demonstrates a full-fledged AWS environment setup for deploying a s
 
 ---
 
-## 🏗️ VPC Configuration
+## VPC Configuration
 
 1. Navigate to **VPC** in AWS Console.
 2. Create a new VPC with:
@@ -26,14 +26,14 @@ This project demonstrates a full-fledged AWS environment setup for deploying a s
 
 ---
 
-## 🔁 VPC Endpoint
+## VPC Endpoint
 
 - Create Gateway Endpoint for **S3** to private subnets.
 - Policy: Full Access
 
 ---
 
-## 🌐 Launch Web Server (EC2)
+## Launch Web Server (EC2)
 
 1. Launch **t2.micro** EC2 in a public subnet of `VPC-Lab`.
 2. Create SG `Immersion Day — Web Server` allowing HTTP (80) & SSH (22).
@@ -51,7 +51,7 @@ dnf update -y
 
 ---
 
-## 🔐 Session Manager Access
+## Session Manager Access
 
 1. Create IAM Role: `SSMInstanceProfile`
    - Policy: `AmazonSSMManagedInstanceCore`
@@ -60,13 +60,13 @@ dnf update -y
 
 ---
 
-## 💾 Create Custom AMI
+## Create Custom AMI
 
 - Actions > Image and Templates > Create Image
 
 ---
 
-## ⚖️ Application Load Balancer (ALB)
+## Application Load Balancer (ALB)
 
 1. Create ALB with 2 public subnets from `VPC-Lab`.
 2. SG: `web-ALB-SG` allowing HTTP.
@@ -75,7 +75,7 @@ dnf update -y
 
 ---
 
-## 🔁 Launch Template & Auto Scaling Group
+## Launch Template & Auto Scaling Group
 
 1. Create SG: `web-ASG-SG` allowing HTTP from `web-ALB-SG`.
 2. Create Launch Template:
@@ -91,7 +91,7 @@ dnf update -y
 
 ---
 
-## 💽 RDS Database
+## RDS Database
 
 1. SG: `db-SG` allowing MySQL from `web-ASG-SG`.
 2. Create Aurora DB Cluster:
@@ -102,7 +102,7 @@ dnf update -y
 
 ---
 
-## 🔐 Secrets Manager
+## Secrets Manager
 
 1. Store DB credentials with name `rdscluster-secret`.
 2. Add `GetSecretValue` policy to `SSMInstanceProfile`.
@@ -110,7 +110,7 @@ dnf update -y
 
 ---
 
-## 🔎 Validate Web App
+## Validate Web App
 
 - Visit ALB DNS.
 - Test "Load" to trigger scaling.
@@ -118,13 +118,7 @@ dnf update -y
 
 ---
 
-## 🧹 Clean-up
-
-- Delete: DB Cluster, Secrets, ASG, ALB, EC2 AMI, Launch Template, VPC, SGs, EIPs, Snapshots.
-
----
-
-## ✅ Conclusion
+## Conclusion
 
 This setup equips you with hands-on experience in:
 - VPC networking
@@ -133,6 +127,4 @@ This setup equips you with hands-on experience in:
 - Database provisioning
 - Secret management
 
-Ideal for building production-grade cloud-native applications.
 
----
